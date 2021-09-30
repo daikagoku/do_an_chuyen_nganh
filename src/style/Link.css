@@ -1,0 +1,24 @@
+[data-type= "link"]{
+    background: transparent;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.4s;
+}
+[data-type= "link"]:not([href]):not([class]),
+[data-type= "link"]:not([href]):not([class]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+[data-type= "link"]:not(.disabled),
+[data-type= "link"]:not(:disabled){
+	cursor: pointer;
+	pointer-events: auto;
+}
+[data-type= "link"]:not(.disabled):active,
+[data-type= "link"]:not(:disabled):active{
+	opacity: 0.1;
+}
+[data-type= "link"]:not(.disabled):hover,
+[data-type= "link"]:hover{
+	text-decoration: underline;
+}

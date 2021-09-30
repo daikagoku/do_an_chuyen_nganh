@@ -1,0 +1,15 @@
+[data-type= "button"]{
+    background: transparent;
+    text-decoration: none;
+    transition: opacity 0.4s;
+}
+[data-type= "button"]:not(.disabled),
+[data-type= "button"]:not(:disabled){
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+[data-type= "button"]:not(.disabled):active,
+[data-type= "button"]:not(:disabled):active{
+	opacity: 0.1;
+}
