@@ -1,0 +1,44 @@
+.card {
+	border-radius: 1rem;
+}
+.card .card-img{
+	transition: transform 0.3s;
+}
+.card:hover .card-img{
+	transform: scale(1.1);
+}
+
+.card-title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1.2em;
+	font-weight: bolder;
+}
+.card-price{
+	display: block;
+	width: 100;
+}
+.card-price.sale{
+	color: #f00;
+}
+.card-price.current{
+	font-size: 0.8em;
+	opacity: 0.8;
+	text-decoration: line-through;
+}
+.card-option{
+	transition: opacity 0.3s;
+}
+.card:hover .card-option{
+	opacity: 1;
+}
+.card-option-btn{
+	border-radius: 0.5rem;
+	transition: color 0.3s,background 0.3s,opacity 0.3s;
+}
+
+.card:hover .card-option-btn{
+	background: #eb3e32;
+	color: #fff;
+}

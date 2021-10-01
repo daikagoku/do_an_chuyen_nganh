@@ -13,7 +13,7 @@ const Button = (function(){
 
 			_dataLevel = dataLevel;
 		};
-		const _Ref = useRef(null);
+		const _ref = useRef(null);
 
 		if(href !== undefined){
 			_Component = 'a';
@@ -37,7 +37,7 @@ const Button = (function(){
 				data-key={count++}
 				data-level={_dataLevel}
 				onClick={_handleClick}
-				ref={_Ref}
+				ref={_ref}
 				{..._Attr}
 				{...props}
 			>

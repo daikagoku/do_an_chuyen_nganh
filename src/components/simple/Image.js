@@ -1,5 +1,5 @@
 import React,{useRef} from 'react';
-
+import '../../style/Image.css'
 const Image = (function(){
 	let count = 0;
 	return function({src,...props}){
@@ -8,7 +8,7 @@ const Image = (function(){
 		}
 		const _Ref = useRef(null);
 		if(src !== undefined){
-			_Attr['data-src']=src;
+			_Attr['src']=src;
 		}
 		return(
 			<img 

@@ -1,16 +1,18 @@
-
 import './App.css';
-import {Button,Link,List,Icon,Badge,Input} from './components/Simple';
-
+import TopContact from './components/layout/TopContact'
+import Header from './components/layout/Header'
+import MainMenu from './components/layout/MainMenu'
+import MainSidebar from './components/layout/MainSidebar'
+import MainContent from './components/layout/MainContent'
 function App() {
   return (
-    <div className="App">
-      <form action="#" className="form control">
-          <Input className="form-control"type="number" isRequired/>
-          <Input className="form-control"/>
-          <Input className="form-control"/>
-      </form>
-    </div>
+      <section className="body-section">
+        <TopContact id="TopContact"/>
+        <Header id="Header"/>
+        <MainMenu />
+        <MainSidebar />
+        <MainContent />
+     </section>
   );
 }
 

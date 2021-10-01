@@ -14,7 +14,7 @@ const Link = (function(){
 			_dataLevel = dataLevel;
 		};
 
-		const Ref = useRef(null);
+		const _ref = useRef(null);
 		if(href !== undefined){
 			_Attr.href = href;
 		};
@@ -36,7 +36,7 @@ const Link = (function(){
 				data-level={_dataLevel}
 				onClick={_handleClick}
 				data-key={count++}
-				ref={Ref}
+				ref={_ref}
 				{..._Attr}
 				{...props}
 			>

@@ -1,51 +1,72 @@
 import React,{useState,useEffect,useRef} from 'react';
-// import '../../style/Input.css'
+import '../../style/Input.css'
 const Input = (function(){
 	let count = 0;
-	const listInput={
-		text:"",
-		number:"[0-9]"
+	const listType={
+		number:{
+			regex:"^[0-9]+$",
+			message:"chỉ bao gồm các số 0-9"
+		}
 	};
-	return function({type,value,className,onChange,onBlur,setValue,...props}){
-		const _Ref  = useRef(null);
-		const [_state,_setState] = useState({
-			value:"",
-			valid:{}
-		});
+	const Validation = {
+		isRequired:function(value){
+			if(value.trim() === ""){
+				return "Trường này không bỏ trống!";
+			};
+		},
+		isType:function(type){
+			const _type = listType[type];
+			if(_type !== undefined){
+				_type.regex= new RegExp(_type.regex);				
+			};
+			return function(value){
+				if(_type !== undefined && !_type.regex.test(value)){
+					return "Trường này "+_type.message;
+				};
+			};
+		},
+		minLength:function(length){
+			const _length = length;
+			return function(value){
+				if(value.trim(" ").length < _length){
+					return "Trường này phải lớn hơn "+_length+" kí tự!";
+				}
+			}
+		},
+		maxLength:function(length){
+			const _length = length;
+			return function(value){
+				if(value.trim(" ").length > _length){
+					return "Trường này phải nhỏ hơn "+_length+" kí tự!";
+				}
+			}
+		}
+	};
+	return function({type,value,onChange,setValue,placeholder,...props}){
+		const _ref  = useRef(null);
+		const [_value,_setValue] = useState("");
+		const _Valid ={
+			error:[],
+			ruler:{}
+		};
 		const _Attr = {
 			'data-type':'input',
-			className:'input-value',
 			type:"text",
-			'input-type':'text'
+			placeholder:" "
 		};
-		if(props.isRequired !== undefined && props.isRequired==true){
-			props.isRequired='true'
-			
-		};
-		if(type !== undefined){
-			_Attr['input-type']=type;
+		if(placeholder !== undefined){
+			_Attr.placeholder = placeholder;
 		};
 		if(value !== undefined){
 			_handleSetValue(value);
 		};
-		if(className !== undefined){
-			_Attr.className +=" "+ className;
-		};
-		// useEffect(function(){
-
-		// },[_value]);
 		function _handleSetValue(value){
-			if(setValue !== undefined){
-				_setState({
-					..._state,
-					value:setValue(value)
-				});
-			}else{
-				_setState({
-					..._state,
-					value:value
-				});
-			}
+			let newValue = value;
+			if(setValue !== undefined && typeof(setValue)==='function'){
+				newValue=setValue(value);
+			};
+			_setValue(newValue);
+
 		};
 		function _handleChange(event){
 			if(onChange !== undefined && typeof(onChange)==='function'){
@@ -53,21 +74,14 @@ const Input = (function(){
 			};
 			_handleSetValue(event.target.value);
 		};
-		function _handleBlur(event){
-			if(onBlur !== undefined && typeof(onBlur)==='function'){
-				onBlur(event);
-			};
-			console.log(_state)
-		};
 		return(
 			<input 
 				data-key={count++}
-				ref={_Ref}
+				ref={_ref}
 				{..._Attr}
 				{...props}
-				onChange={_handleChange}
-				onBlur={_handleBlur}
-				value={_state.value}
+				onChange ={_handleChange}
+				value={_value}
 			/>
 		)
 	};	
