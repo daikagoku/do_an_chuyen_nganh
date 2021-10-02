@@ -8,17 +8,8 @@ const List = (function(){
 			if(typeof(children) === 'function' && listItem !== undefined && Array.isArray(listItem)){
 				return listItem.map(function(_item,_index){
 					const _itemRef = useRef(null);
-					const _itemComponent = children(_item,_index,_itemRef);
-					if(_itemComponent.type === undefined || _itemComponent.type !=='li'){
-						return (
-							<li key={_index}ref={_itemRef}>{_itemComponent}</li>
-						);
-					}
-					else {
-						return (	
-							<>{_itemComponent}</>
-						);
-					}	
+					return children(_item,_index,_itemRef);
+					
 				})
 			}else{
 				return (<>{children}</>);

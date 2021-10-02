@@ -1,10 +1,10 @@
-import {List,Item,Button,Icon} from '../Simple';
+
 import HeaderLogo from './HeaderLogo';
 import HeaderSearch from './HeaderSearch';
 import HeaderMenu from './HeaderMenu';
 function Header(props) {
   return (
-      <section {...props}>
+      <section className="container-fluid"{...props}>
       		<header className="container">
       			<div className="row">
       				<div className="col col-3"></div>

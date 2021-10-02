@@ -2,7 +2,6 @@ import React,{useRef} from 'react';
 import '../../style/Item.css'
 const Item = (function(){
 	let count = 0;
-	let active = {};
 	return function({children,...props}){
 		let _Component='li';
 		const _ref = useRef(null);
