@@ -1,8 +1,19 @@
 import {List,Item,Button,Link,Icon} from '../Simple';
+import {useState,useRef} from 'react'
 import '../../style/MainMenu.css';
 function MainMenu(props) {
+  const ref = useRef(null);
+  const [state,setState] = useState({
+                            className:""
+                          });
+  document.addEventListener('scroll',function(event){
+    if(ref.current !== null){
+        const body = document.querySelector('#root');
+        console.log(body.scrollTop)
+    }
+  })
   return (
-      <section className="container-fluid">
+      <section ref={ref}className={state.className+" container-fluid"}>
       		<div className="container">
       			<div className="row">
       				<nav className="main-menu">	

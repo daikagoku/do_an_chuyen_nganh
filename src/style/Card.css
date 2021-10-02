@@ -1,6 +1,10 @@
 .card {
 	border-radius: 1rem;
 }
+.card:hover 
+{
+	box-shadow: 0 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
+}
 .card .card-img{
 	transition: transform 0.3s;
 }
@@ -14,7 +18,7 @@
 	justify-content: center;
 	line-height: 1.2em;
 	font-weight: bolder;
-
+	margin-bottom: 0;
 	width: fit-content;
     word-break: break-word;
     overflow: hidden;
@@ -46,10 +50,6 @@
 }
 .card-option-btn{
 	border-radius: 0.5rem;
-	transition: color 0.3s,background 0.3s,opacity 0.3s;
-}
-
-.card:hover .card-option-btn{
 	background: #eb3e32;
 	color: #fff;
 }

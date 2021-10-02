@@ -1,7 +1,7 @@
 import React,{useRef} from 'react';
 import '../../style/MainCategory.css'
 import {Thumbnail} from '../Toolbar';
-import {Image,Button} from '../Simple';
+import {List,Item,Image,Button} from '../Simple';
 
 const MainCategory = (function(){
 	let count = 0;
@@ -48,27 +48,28 @@ const MainCategory = (function(){
 			href:"#"
 		}
 	];
-	function renderItem(){
-		if(data.length > 0){
-			return data.map(function(item,index){
-				return(
-					<div className="col col-1 position-relative"key={index}>
-						<Thumbnail ThumbnailStyle="square main-category-thumbnail">
-							<Image src={item.img} className="position-absolute bottom-6 end-6 translate-6"></Image>
-						</Thumbnail>
-						<div className="d-flex align-items-center justify-content-center">
-							<span>{item.title}</span>
-						</div>
-						<Button href={item.href}className="position-absolute top-0 bottom-0 start-0 end-0"></Button>
-					</div>
-				)
-			});
-		}
-	};
 	return function({className,...props}){
 		return(
-			<div className="d-flex overflow-hidden justify-content-between">
-				{renderItem()}
+			<div className="overflow-hidden">
+				<div className="overflow-x-auto overflow-y-hidden">
+				<List listItem={data}className="m-0 p-0 card-group flex-nowrap justify-content-xl-between">
+					{
+						(item,index)=>(
+							<Item key={index}className="col col-3 col-sm-2 col-xl-1 p-1 position-relative">
+								<Button href={item.href}className="h-100">
+									<Thumbnail ThumbnailStyle="square main-category-thumbnail">
+										<Image src={item.img} className="position-absolute bottom-6 end-6 translate-6"></Image>
+									</Thumbnail>
+									<div className="d-flex align-items-center justify-content-center">
+										<span>{item.title}</span>
+									</div>
+								</Button>
+							</Item>
+
+						)
+					}
+				</List>
+			</div>
 			</div>
 		);
 	};	

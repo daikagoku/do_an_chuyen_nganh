@@ -1,5 +1,5 @@
-import {List,Item,Button,Icon,Image} from '../Simple';
-import {Thumbnail} from '../Toolbar';
+
+
 import MainSlide from './MainSlide'
 import MainCategory from './MainCategory'
 function MainSidebar(props) {

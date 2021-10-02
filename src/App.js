@@ -6,9 +6,9 @@ import MainSidebar from './components/layout/MainSidebar'
 import MainContent from './components/layout/MainContent'
 function App() {
   return (
-      <section className="body-section">
-        <TopContact id="TopContact"/>
-        <Header id="Header"/>
+      <section id="body-section">
+        <TopContact/>
+        <Header/>
         <MainMenu />
         <MainSidebar />
         <MainContent />

@@ -4248,7 +4248,10 @@ textarea.form-control-lg {
 .navbar-dark .navbar-text a:focus {
   color: #fff;
 }
-
+  .card-group {
+    display: flex;
+    flex-flow: row wrap;
+  }
 .card {
   position: relative;
   display: flex;
@@ -4371,10 +4374,7 @@ textarea.form-control-lg {
   margin-bottom: 0.75rem;
 }
 @media (min-width: 576px) {
-  .card-group {
-    display: flex;
-    flex-flow: row wrap;
-  }
+
   .card-group > .card {
     flex: 1 0 0%;
     margin-bottom: 0;
