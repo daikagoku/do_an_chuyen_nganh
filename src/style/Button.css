@@ -11,5 +11,5 @@
 
 [data-type= "button"]:not(.disabled):active,
 [data-type= "button"]:not(:disabled):active{
-	opacity: 0.1;
+	opacity: 0.4;
 }

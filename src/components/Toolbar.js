@@ -1,2 +1,9 @@
 export {default as Thumbnail} from './toolbar/Thumbnail.js';
-export {default as CardVertical} from './toolbar/CardVertical.js';
+export {default as ProductCardVertical} from './toolbar/ProductCardVertical.js';
+export {default as ProductCardHorizontal} from './toolbar/ProductCardHorizontal.js';
+export {default as PostCardVertical} from './toolbar/PostCardVertical.js';
+export {default as PostCardHorizontal} from './toolbar/PostCardHorizontal.js';
+export {default as Paging} from './toolbar/Paging.js';
+export {default as Logo} from './toolbar/Logo.js';
+export {default as RatingStar} from './toolbar/RatingStar.js';
+export {default as Dropdown} from './toolbar/Dropdown.js';

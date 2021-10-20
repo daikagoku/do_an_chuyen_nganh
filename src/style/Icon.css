@@ -1,0 +1,9 @@
+[data-type="icon"]{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	line-height: 1em;
+	width: 1em;
+	height: 1em;
+}

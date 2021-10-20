@@ -1,0 +1,35 @@
+#main-menu{
+	z-index: 5;
+	background: #fd2704;
+}
+.main-menu-item{
+	
+}
+.main-menu-button{
+	color: #fff;
+	position: relative;
+}
+.main-menu-button:before{
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0%;
+	height: 0.3rem;
+	border-radius: 1000rem;
+	background: currentColor;
+	transition: width 0.3s;
+	transform: translateX(-50%);
+	opacity: 0;
+}
+.main-menu-button:hover{
+	color: #fac100;
+}
+.main-menu-button.active{
+	color: #fac100;
+}
+.main-menu-button.active:before{
+	width: 100%;
+	opacity: 1;
+}

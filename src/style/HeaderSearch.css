@@ -1,6 +1,11 @@
 .header-search-input{
-	width: 100%;
 	padding: 0.5rem 2rem;
+	border-radius: 1rem;
+	border: 0.1rem solid #fd2704;
+	transition: box-shadow 0.2s linear;
+}
+.header-search-input:focus{
+	box-shadow: 0 0 0 0.15rem rgba(250, 27, 04, 0.6);
 }
 .header-search-btn{
 	position: absolute;

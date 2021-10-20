@@ -7,5 +7,9 @@ export {default as Form} from './simple/Form.js';
 export {default as Input} from './simple/Input.js';
 export {default as Bookmask} from './simple/Bookmask.js';
 export {default as List} from './simple/List.js';
-export {default as Item} from './simple/Item.js';	
+export {default as Item} from './simple/Item.js';
+
+
+export {default as Component} from './simple/Component.js';
+
 	

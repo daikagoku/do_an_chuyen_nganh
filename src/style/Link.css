@@ -16,7 +16,7 @@
 }
 [data-type= "link"]:not(.disabled):active,
 [data-type= "link"]:not(:disabled):active{
-	opacity: 0.1;
+	opacity: 0.4;
 }
 [data-type= "link"]:not(.disabled):hover,
 [data-type= "link"]:hover{

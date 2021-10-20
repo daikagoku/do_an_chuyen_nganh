@@ -1,48 +1,45 @@
-import React,{useRef} from 'react';
+import React from 'react';
+import Component from './Component';
 import '../../style/Button.css'
 const Button = (function(){
 	let count = 0;
-	let active = {};
-	return function({href,dataLevel,children,onClick,...props}){
-		let _Component='button';
+	return function({href,children,onClick,...props}){
 		const _Attr= {
+			tag:'button',
 			'data-type':'button'
 		};
-		let _dataLevel = 0;
-		if(dataLevel !== undefined && !Number.isNaN(parseInt(dataLevel))){
-
-			_dataLevel = dataLevel;
-		};
-		const _ref = useRef(null);
 
 		if(href !== undefined){
-			_Component = 'a';
+			_Attr.tag = 'a';
 			_Attr.href = href;
 		};
-		function _handleClick(event){
-			if(event.target.classList.toggle('active')){
-				if(active[_dataLevel]!==undefined){
-					active[_dataLevel].classList.remove('active');
+		if(props===undefined || props['data-tab'] === undefined){
+			props['data-tab'] = 'undefined';
+		};
+		_Attr.onClick = function(event){
+			const __button = event.target.closest('[data-type="button"]');
+			function __activeButton(flag){
+				const __current = document.querySelector(`[data-type="button"][data-tab=${props['data-tab']}].active`);
+				if(__button.classList.toggle('active',flag)){					
+					if(__current !== null && __current!==undefined && __current !== __button){
+						__current.classList.remove('active');
+					};
 				};
-				active[_dataLevel]=event.target;
-			}else{
-				delete active[_dataLevel];
+
 			};
 			if(onClick !== undefined && typeof(onClick)==='function'){
-				onClick(event);
-			};
+				onClick(event,__activeButton,__button);
+			}else{
+				__activeButton();
+			}
 		};
 		return(
-			<_Component 
-				data-key={count++}
-				data-level={_dataLevel}
-				onClick={_handleClick}
-				ref={_ref}
+			<Component
 				{..._Attr}
 				{...props}
 			>
 				{children}
-			</_Component>
+			</Component>
 		);
 	};	
 })();

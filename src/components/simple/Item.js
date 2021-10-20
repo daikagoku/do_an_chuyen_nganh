@@ -1,23 +1,20 @@
-import React,{useRef} from 'react';
+import React from 'react';
+import Component from './Component';
 import '../../style/Item.css'
 const Item = (function(){
 	let count = 0;
 	return function({children,...props}){
-		let _Component='li';
-		const _ref = useRef(null);
 		const _Attr= {
+			tag:"li",
 			'data-type':'item'
 		};
-
 		return(
-			<_Component 
-				data-key={count++}
-				ref={_ref}
+			<Component 
 				{..._Attr}
 				{...props}
 			>
 				{children}
-			</_Component>
+			</Component>
 		);
 	};	
 })();

@@ -1,0 +1,10 @@
+.memu-page-btn{
+	border-radius: 1000rem;
+}
+.memu-page-btn:not(.disabled):not(.active):hover{
+	background: rgba(0, 0, 0, 0.1);
+}
+.memu-page-btn.active{
+	color: #fff;
+	background: #eb3e32;
+}

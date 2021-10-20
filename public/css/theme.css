@@ -11,3 +11,8 @@
 	--secondary-color: #231b2e;
 	--highlight-gradient: #f00,#ff0,#0ff;
 }
+.gradient{
+	background: -webkit-linear-gradient(#f00,#ff0,#fff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

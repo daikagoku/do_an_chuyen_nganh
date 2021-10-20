@@ -1,25 +1,23 @@
-import React,{useRef} from 'react';
+import React from 'react';
+import Component from './Component';
 import '../../style/Bookmask.css'
 const Bookmask = (function(){
 	let count = 0;
 	return function({className,text,...props}){
-		const _Ref = useRef(null);
-		let _Component='span';
 		const _Attr={
+			tag:'span',
 			className:"bookmask"
 		};
 		if(className !== undefined){
 			_Attr.className+=' '+className;
 		};
 		return(
-			<span 
-				key={count++}
-				ref={_Ref}
+			<Component
 				{..._Attr}
 				{...props}
 			>
 				{text}
-			</span>
+			</Component>
 		);
 	};	
 })();

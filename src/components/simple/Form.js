@@ -1,12 +1,13 @@
 import React,{useRef} from 'react';
-import '../../style/Button.css'
+import Component from './Component';
+import '../../style/Form.css'
 const Item = (function(){
 	let count = 0;
 	let active = {};
 	return function({action,children,...props}){
-		let _Component='form';
 		const _ref = useRef(null);
 		const _Attr= {
+			tag:"form",
 			'data-type':'form',
 			action:"#"
 		};
@@ -14,14 +15,12 @@ const Item = (function(){
 			_Attr.action = action;
 		}
 		return(
-			<_Component 
-				data-key={count++}
-				ref={_ref}
+			<Component 
 				{..._Attr}
 				{...props}
 			>
 				{children}
-			</_Component>
+			</Component>
 		);
 	};	
 })();

@@ -1,7 +1,6 @@
-import React,{useRef} from 'react';
+import React from 'react';
 import '../../style/Thumbnail.css'
 const Thumbnail = (function(){
-	let count = 0;
 	return function({children,ThumbnailStyle,...props}){
 		return(
 			<div className="thumbnail position-relative">

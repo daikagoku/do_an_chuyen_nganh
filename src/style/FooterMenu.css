@@ -1,0 +1,7 @@
+.footer-menu-item{
+	color: #bbb;
+}
+.footer-menu-item:hover,
+.footer-menu-item.active{
+	color: #ffb416;
+}

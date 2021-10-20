@@ -1,0 +1,30 @@
+.main-slide-button{
+	border-radius: 1000rem;
+	background: rgba(0, 0, 0, 0.1);
+}
+.main-slide-indicators,
+.main-slide-buttons{
+	z-index: 5;
+}
+.main-slide-indicator{
+	border-radius: 1000rem;
+	transition: color 0.3s,opacity 0.3s;
+	color: #ccc;
+	background: currentColor;
+}
+.main-slide-indicator.active{
+	color: #fd2704;
+}
+
+.main-slide-list{
+	z-index: 0;
+}
+.main-slide-item{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 0;
+	opacity: 1;
+	transition: transform 2s;
+	transform: translate(calc(-50% + 100% * var(--order,0)),-50%);
+}

@@ -1,17 +1,15 @@
-import React,{useRef} from 'react';
-
+import React from 'react';
+import Component from './Component';
+import '../../style/Icon.css'
 const Icon = (function(){
 	let count = 0;
 	return function({...props}){
-		const _ref = useRef(null);
-		let _Component='span';
 		const _Attr = {
+			tag:"span",
 			'data-type':'icon'
 		};
 		return(
-			<_Component 
-				data-key={count++}
-				ref={_ref}
+			<Component
 				{..._Attr}
 				{...props}
 			/>

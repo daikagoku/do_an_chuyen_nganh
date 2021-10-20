@@ -1,26 +1,52 @@
-import React,{useRef} from 'react';
-
+import React from 'react';
+import Component from './Component';
 const List = (function(){
 	let count = 0;
-	return function({listItem,children,...props}){
-		const Ref = useRef(null);
-		function renderChildren(){
+	function renderChildren(listItem,children){
+			let html;
 			if(typeof(children) === 'function' && listItem !== undefined && Array.isArray(listItem)){
-				return listItem.map(function(_item,_index){
-					const _itemRef = useRef(null);
-					return children(_item,_index,_itemRef);
-					
+				html = listItem.map(function(_item,_index,_this){
+					return children(_item,_index,_this.length);					
 				})
 			}else{
-				return (<>{children}</>);
+				html = children;
 			}
+		return html;
+	};
+	function renderListChildren(listItem,children){
+		if(children !== undefined){
+			if(Array.isArray(children)){
+				return children.map(function(element, index) {
+					return renderChildren(listItem,element);
+				});
+			}else{
+				return renderChildren(listItem,children);
+			}
+		}
+	};
+	return function({children,listItem,filter,sort,...props}){
+		let _listItem = listItem;
+		if(filter !== undefined && typeof(filter)==='function'){
+			_listItem = _listItem.filter(function(__item,__index){
+				return filter(__item,__index);
+			})
 		};
+		if(sort !== undefined && typeof(sort)==='function'){
+			_listItem.sort(function(a,b){
+				let tmp = sort(a,b);
+				return tmp;
+			});
+		};
+		const _Attr={
+			tag:"ul"
+		};
+
 		return(
-			<ul data-key={count++}ref={Ref}{...props}>
+			<Component {..._Attr}{...props}>
 				{
-					renderChildren()
+					renderListChildren(_listItem,children)
 				}
-			</ul>
+			</Component>
 		);
 	};	
 })();
