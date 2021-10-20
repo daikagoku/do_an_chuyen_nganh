@@ -1,0 +1,27 @@
+[
+	{
+		"title":"Asus ROG Phone 3",
+		"img":"./img/Asus ROG Phone 3.png"
+	},{
+		"title":"Asus ROG Phone 5",
+		"img":"./img/Asus ROG Phone 5.png"
+	},{
+		"title":"IPhone 11",
+		"img":"./img/IPhone 11.png"
+	},{
+		"title":"IPhone 12 Pro",
+		"img":"./img/IPhone 12 Pro.png"
+	},{
+		"title":"IPhone 13 Mini",
+		"img":"./img/IPhone 13 Mini.png"
+	},{
+		"title":"IPhone 13 Pro Max",
+		"img":"./img/IPhone 13 Pro Max.png"
+	},{
+		"title":"IPhone SE",
+		"img":"./img/IPhone SE.png"
+	},{
+		"title":"IPhone XR",
+		"img":"./img/IPhone XR.png"
+	}
+]
